@@ -1,0 +1,160 @@
+#htournoi{text-align: center;
+text-transform: uppercase;
+color: red;
+margin-top:15px;
+margin-bottom: 15px;
+font-size: 35px;}
+
+#heure_exacte{color: white;
+position:absolute;
+margin-left: 10px;}
+
+#imglogo{width: 80px;
+height: 50px;
+margin-left: 65px;
+position: relative;}
+
+body{background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url("../medias/images/black.png");
+background-repeat: no-repeat;
+background-size: cover;}
+
+fieldset{margin-top: 20px;
+margin-bottom: 20px;
+margin-left: 20%;
+margin-right: 20%;
+padding: 10px;
+background-color: lightgray;}
+
+legend{border-left: 2px solid red;
+border-right: 2px solid red;
+border-top: 2px solid red;
+background-color: black;
+color: white;
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 5px;
+padding-top:5px;
+box-shadow: inset 1px 1px 3px #ccc, 3px 3px red;}
+
+input{margin-top: 15px;
+box-shadow: inset 1px 1px 3px #ccc;
+border-radius: 5px;
+display: inline-block;
+padding: 3px;}
+
+.rouge{color: red;}
+
+.espace{margin-left: 20px;}
+
+.margetop{margin-top: 15px;}
+
+.marge{margin-bottom: 10px;}
+
+.bold{font-weight: bold;}
+
+#categorie{margin-top: 15px;}
+
+#sexe{margin-top: 15px;}
+
+input[type=email]:valid,
+input[type=datetime-local]:valid,
+input[type=tel]:valid,
+input[type=number]:valid,
+input[type=text]:valid,
+input[type=fil]:valid,
+input[type=password]:valid
+{outline: 3px green solid;}
+
+input[type=date]:valid
+input[type=url]:valid
+
+input[type=url]:invalid, 
+input[type=number]:out-of-range,
+input[type=email]:invalid
+{outline: 3px red solid;}
+
+#suggestion{display: block;
+margin-bottom: 10px;
+margin-top:15px;}
+
+textarea{padding: 8px;
+max-width: 100%;
+line-height: 1.5;
+border-radius: 5px;
+border: 1px solid #ccc;
+box-shadow: 1px 1px 1px #999;}
+
+input[type=color]{width: 50px;
+height: 20px;}
+
+#envoyer{text-align: center;}
+
+#champsobligatoire{margin-left: 20%;
+color: white;}
+
+#presentation{
+color: white;
+margin-top: 15px;
+margin-bottom: 15px;
+text-align: center;}
+
+#sommaire{text-align: center;
+color: red;}
+
+.rouge{color:red;}
+
+/*Boutons retour et suivant*/
+
+.boutonrouge{box-shadow: 1px 1px 3px red;
+background-color: black;
+color: white;
+border-color:black;
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 5px;
+padding-top: 5px;
+cursor: pointer;
+text-align: center;}
+
+#suivant{text-align: center;
+float: right;
+margin-right: 30px;
+margin-bottom: 20px;
+}
+
+#retour{text-align: center;
+float: left;
+margin-left: 30px;
+margin-bottom: 20px;}
+
+/*en tête de la page*/
+
+*{margin: 0;
+padding:0;}
+
+header{background-color: black;
+padding-top:15px;
+padding-bottom: 20px;}
+
+nav ul{list-style-type: none;}
+
+nav li{float: right;
+width: 15%;
+text-align: center;
+padding-top: 25px;
+padding-bottom: 20px;
+font-weight: bold;}
+
+nav{width: 100%;
+margin: 0 auto;
+position: absolute;
+top: 0px;}
+
+nav a{display: block;
+text-decoration: none;
+color: white;
+border-bottom: 2px solid transparent;
+padding: 10px 0px;}
+
+nav a:hover{color: #FF0000;
+border-bottom: 2px solid #8B0000;}
