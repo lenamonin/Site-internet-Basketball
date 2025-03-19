@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8" >
+	<meta name= "author" lang="fr" content= "Lena Monin" >
+	<meta name= "keywords" content= "basketball, logo" >
+	<meta name="description" content="construction d'un logo ballon de basket avec des courbes de béziers">
+	<link rel="stylesheet" href="../css/logo.css" type="text/css">
+	<link rel="stylesheet" href="../css/retourenhaut.css" type="text/css">
+	<title>Logo</title>
+</head>
+<body>
+<header>
+	<nav>
+		<ul>
+			<li>
+				<a href="logo.html">Mon logo</a>
+			</li>
+			<li>
+				<a href="formulaire.html">Formulaire</a>
+			</li>	
+			<li>
+				<a href="lnb.html">LNB</a>
+			</li>	
+			<li>
+				<a href="parcoursperso.html">Mon Parcours Sportif</a>
+			</li>
+			<li>
+				<a href="index.html" id="accueil">Accueil</a>
+			</li>			
+		</ul>	
+	</nav>
+	<div>
+		<a href="index.html">
+			<img id="imglogo" src="../medias/images/logo.png" alt="logo du site">
+		</a>
+	</div>
+<div id="heure_exacte"></div>
+</header>
+<main>
+<h1 id="hlogo">Mon Logo</h1>
+<div id="sommaire">
+<ol>	
+	<li>
+		<input type="button" value="Le logo" class="boutonorange" id="bouton1" onclick="window.location.href = '#divlogo';" >
+	</li>
+	<li>
+		<input type="button" value="La construction du logo" class="boutonorange" id="bouton2" onclick="window.location.href = '#divlogo2';" >
+	</li>
+</ol>
+</div>
+<div id="divlogo">
+	<figure>
+		<canvas id="canvas" width="800" height="500"></canvas>
+		<figcaption>Le logo vague dessiné dans un canvas</figcaption>
+	</figure>
+</div>
+
+<div id="divlogo2">
+	<p>Pour construire ce logo j'ai utilisé deux fonctions javascript, une qui dessine le ballon de basket et une qui dessine la vague et qui affiche le nom du club.</p>
+	<p>Voici les deux fonctions en question, vous pouvez les retrouver dans ce <a class="lienorange" href="../javascript/canvas.js">fichier</a> :</p>
+	<pre>
+
+	var ctx = document.getElementById('canvas').getContext('2d');
+	var w = document.getElementById('canvas').width;
+	var h = document.getElementById('canvas').height;
+
+	//Fonction qui dessine le ballon de basket
+	
+	function ball(){
+  		ctx.strokeStyle = "#ffffff";
+  		ctx.fillStyle = "black";
+  		ctx.lineWidth = "5";
+  		ctx.beginPath();
+  		ctx.moveTo(400, 125);
+  		ctx.lineTo(400, 375);
+  		ctx.moveTo(275, 250);
+  		ctx.lineTo(525, 250);
+  		ctx.arc(400, 250, 125, 0, 2*Math.PI, true);
+  		ctx.moveTo(462.5, 141);
+  		ctx.arcTo(400, 250, 462.5, 359, 215);
+  		ctx.moveTo(337.5, 141);
+  		ctx.arcTo(400, 250, 337.5, 359, 215);
+  		ctx.fill();
+  		ctx.stroke();
+  		ctx.closePath();
+	}
+
+	// Fonction qui dessine la vague et affiche le nom du club
+
+	function draw() {
+  		ctx.fillStyle = "black";
+  		ctx.strokeStyle = "#ffffff";
+  		ctx.lineWidth = h/50;
+  		ctx.beginPath();
+  		ctx.moveTo(w-20, h-20);
+  		ctx.lineTo(20, h-20);
+  		ctx.quadraticCurveTo(w/4, 20, w-20, 20);
+  		ctx.bezierCurveTo(w-10, 20, w/2, h-20, w-20, h-20);
+  		ctx.lineTo(20, h-20);
+  		ctx.fill();
+  		ctx.stroke();
+  		ctx.closePath();
+  		ctx.fillStyle = "#ffffff";
+  		ctx.font = Math.floor((h/4)-(h/10))+'px sans-serif';
+  		ctx.textAlign = 'center';
+  		ctx.textBaseline = 'middle';
+  		ctx.fillText('Waves BC', (w/2), h-70);
+	}
+	</pre>
+	<p>
+		Le logo est composé de deux formes superposées et d'une écriture représentant le nom du club située en dessous du ballon de basket.	Il est construit dans un canvas ayant une largeur de 800 et une hauteur de 500.
+	</p>
+	<hr>
+	<p>La <span class="orange">fonction draw</span> permet de dessiner la <span class="orange">forme de vague</span>, elle est conçu pour s'adapter au canvas c'est pourquoi on utilise les variables <code>w</code> et <code>h</code> respectivement la largeur et la hauteur du canvas dans lequel on souhaite dessiner le logo. </p>
+	<p>Pour construire la fonction draw on utilise plusieurs points :</p>
+		<ul>
+			<li>L défini par : <code>x = w-20</code> et <code>y = h-20</code></li>
+			<li>M défini par : <code>x = 20</code> et <code>y = h-20</code></li>		
+			<li>N défini par : <code>x = w/4</code> et <code>y = 20</code></li>
+			<li>O défini par : <code>x = w-20</code> et <code>y = 20</code></li>
+			<li>P défini par : <code>x = w/20</code> et <code>y = h-20</code></li>
+			<li>Q défini par : <code>x = w-10</code> et <code>y = 20</code></li>
+		</ul>
+	<p>Soit la fonction draw :</p>
+		<pre>
+	function draw() {
+  		ctx.fillStyle = "black";
+  		ctx.strokeStyle = "#ffffff";
+  		ctx.lineWidth = h/50;
+  		ctx.beginPath();
+  		ctx.moveTo(w-20, h-20);
+  		ctx.lineTo(20, h-20);
+  		ctx.quadraticCurveTo(w/4, 20, w-20, 20);
+  		ctx.bezierCurveTo(w-10, 20, w/2, h-20, w-20, h-20);
+  		ctx.lineTo(20, h-20);
+  		ctx.fill();
+  		ctx.stroke();
+  		ctx.closePath();
+  		ctx.fillStyle = "#ffffff";
+  		ctx.font = Math.floor((h/4)-(h/10))+'px sans-serif';
+  		ctx.textAlign = 'center';
+  		ctx.textBaseline = 'middle';
+  		ctx.fillText('Waves BC', (w/2), h-70);
+	}
+		</pre>
+	<p>Les trois premières lignes servent à paramétrer la couleur de remplissage (en noir), la couleur des contours (en blancs) ainsi que l'épaisseur des bordures du dessin (<code>5%</code> de la hauteur du canvas).</p>
+	<p>
+		Le code situé entre :
+		<code> ctx.beginPath();</code> 
+		et 
+		<code>ctx.closePath();</code> 
+		commence par tracer une ligne partant du point L en allant au point M puis une trace une <span class="orange">courbe de bézier de degré 2</span> pour aller au point O en prenant le point N comme point de contrôle.
+	</p>
+	<p>
+		Ensuite, on trace une <span class="orange">courbe de bézier de degré 3</span> partant du point O pour retourner au point L en prenant les point P et Q, respectivement le premier et deuxième point de contrôle. Pour finir on retrace une ligne allant du point L au point M afin d'obtenir des angles propres.
+	</p>
+	<p>
+		Les lignes 
+		<code>ctx.fill();</code> 
+		et 
+		<code>ctx.stroke();</code> 
+		vont respectivement remplir et tracer les contours de la forme que l'on vient de dessiner avec les caractéristiques et les couleurs définies plus tôt.
+	</p>
+	<p>Les 5 dernières lignes permettent d'écrire "Waves BC" juste en dessous du ballon de basket.</p>
+	<p>Les 4 lignes après le <code>ctx.closePath();</code> servent à paramétrer respectivement la couleur de remplissage (en blanc), la police (sans-serif) et la taille du texte à dessiner (définie en fonction de la taille du canvas), ainsi que l'alignement vertical et horizontal du texte en fonction de la position du point choisi (texte centré verticalement et horizontalement).</p>
+	<p>Enfin, <code>ctx.fillText('Waves BC', (w/2), h-70);</code> permet d'écrire le texte à l'emplacement souhaité.</p>
+	<hr>
+	<p>Cependant contrairement à la fonction draw, la <span class="orange">fonction ball</span> n'est pas adaptable au canvas donc on n'utilise pas les variables <code>w</code> et <code>h</code>.</p>	
+	<p>Pour construire la fonction ball on utilise plusieurs points :</p>
+		<ul>
+			<li>A défini par : <code>x = 400</code> et <code>y = 125</code></li>
+			<li>B défini par : <code>x = 462.5</code> et <code>y = 141</code></li>		
+			<li>C défini par : <code>x = 525</code> et <code>y = 250</code></li>
+			<li>D défini par : <code>x = 462.5</code> et <code>y = 359</code></li>
+			<li>E défini par : <code>x = 400</code> et <code>y = 375</code></li>
+			<li>F défini par : <code>x = 337.5</code> et <code>y = 359</code></li>
+			<li>G défini par : <code>x = 275</code> et <code>y = 250</code></li>
+			<li>H défini par : <code>x = 337.5</code> et <code>y = 141</code></li>
+		</ul>
+	<p>Soit la fonction ball :</p>
+		<pre>
+	function ball(){
+  		ctx.strokeStyle = "#ffffff";
+  		ctx.fillStyle = "black";
+  		ctx.lineWidth = "5";
+  		ctx.beginPath();
+  		ctx.moveTo(400, 125);
+  		ctx.lineTo(400, 375);
+  		ctx.moveTo(275, 250);
+  		ctx.lineTo(525, 250);
+  		ctx.arc(400, 250, 125, 0, 2*Math.PI, true);
+  		ctx.moveTo(462.5, 141);
+  		ctx.arcTo(400, 250, 462.5, 359, 215);
+  		ctx.moveTo(337.5, 141);
+  		ctx.arcTo(400, 250, 337.5, 359, 215);
+  		ctx.fill();
+  		ctx.stroke();
+  		ctx.closePath();
+	}
+		</pre>
+	<p>Les trois premières lignes servent à paramétrer la couleur des contours (en blancs), la couleur de remplissage (en noir) ainsi que l'épaisseur des bordures du dessin (<code>5</code> pixels).</p>
+	<p>
+		Le code situé entre :
+		<code> ctx.beginPath();</code> 
+		et 
+		<code>ctx.closePath();</code> 
+		commencent par tracer une ligne partant du point A en allant au point E puis se déplace au point G pour tracer une ligne en allant au point C. Jusque là nous avons tracer la croix se situant au centre du cercle.
+	</p>
+	<p>
+		Ensuite, on trace le <span class="orange">cercle</span> partant du centre c'est-à-dire du point J avec un rayon de <code>125</code> pixels pour des angles de <code>0</code> à <code>2&#215;&pi;</code>.
+	</p> 
+	<p>
+		Enfin, on trace les <span class="orange">arcs de cercles</span>, d'abord celui de droite en se positionnant au point B on dessine l'arc de cercle de rayon <code>215</code> pixels ayant pour tangentes (JB) et (JD). Pour celui de gauche, on se positionne au point H, on dessine l'arc de cercle de rayon <code>215</code> pixels ayant pour tangentes (JH) et (JF).
+	</p>
+	<p>
+		Les lignes 
+		<code>ctx.fill();</code> 
+		et 
+		<code>ctx.stroke();</code> 
+		vont respectivement remplir et tracer les contours de la forme que l'on vient de dessiner avec les caractéristiques et les couleurs définies plus tôt.
+	</p>
+
+</div>
+</main>
+<footer>
+	<input type="button" class="boutonorange" id="retour" value="Retour" onclick="history.back()">	
+</footer>
+<div>
+	<a id="cRetour" class="cInvisible" href="#sommaire"></a>
+</div>
+<script src="../javascript/retourenhaut.js"></script>
+<script src="../javascript/heure.js"></script>
+<script src="../javascript/logo.js" onload="javascript:draw(),ball()"></script>
+</body>
+</html>
