@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8" >
+	<meta name= "author" lang="fr" content= "Lena Monin" >
+	<meta name= "keywords" content= "basketball, tournoi, inscription" >
+	<meta name="description" content="formulaire pour participer à un tournoi de basket">
+	<link rel="stylesheet" href="../css/formulaire.css" type="text/css">
+	<link rel="stylesheet" href="../css/retourenhaut.css" type="text/css">
+	<title>Formulaire</title>
+</head>
+<body>
+<header>
+	<nav>
+		<ul>
+			<li>
+				<a href="logo.html">Mon logo</a>
+			</li>
+			<li>
+				<a href="formulaire.html">Formulaire</a>
+			</li>	
+			<li>
+				<a href="lnb.html">LNB</a>
+			</li>	
+			<li>
+				<a href="parcoursperso.html">Mon Parcours Sportif</a>
+			</li>
+			<li>
+				<a href="index.html">Accueil</a>
+			</li>			
+		</ul>	
+	</nav>
+	<div>
+		<a href="index.html">
+			<img id="imglogo" src="../medias/images/logo.png" alt="logo du site">
+		</a>
+	</div>
+	<div id="heure_exacte"></div>
+</header>
+<main>
+<h1 id="htournoi">Organisation Tournoi de Basket-Ball</h1>
+	<div id="sommaire">
+		<ol>	
+			<li>
+				<input type="button" value="Créer mon équipe" class="boutonrouge" id="bouton1" onclick="window.location.href = '#legend1';" >
+			</li>
+			<li>
+				<input type="button" value="Mon inscription" class="boutonrouge" id="bouton2" onclick="window.location.href = '#legend2';" >
+			</li>
+		</ol>
+	</div>
+	<div id="presentation" class="bold">
+		<p>Nous organisons 4 tournois de basket en France et nous vous proposons de participer à l'un d'entre eux. </p> 
+		<p>Pour ce faire rien de plus simple, il suffit de <span class="rouge">remplir ce formulaire</span> où vous devez créer votre équipe ainsi que remplir quelques informations personnels pour votre inscription</p>
+		<p>Si vous souhaitez participer nous serons ravi de vous accueillir vous et votre équipe !</p>
+	</div>
+	<form id="form" method="post" action="mailto:lena_monin@etu.u-bourgogne.fr" enctype="multipart/form-data" onsubmit="javascript:return checkform();">
+		<fieldset>
+			<legend id="legend1">Informations concernant votre équipe :</legend>
+				<p>
+					<label for="ville-selected">La ville où vous souhaitez participer <span class="rouge">*</span> :</label>	
+						<select name="ville" id="ville-selected" required >
+							<option value="">--Choisissez une ville--</option>
+							<option value="paris">Paris</option>
+							<option value="lyon">Lyon</option>
+							<option value="lille">Lille</option>
+							<option value="dijon">Dijon</option>
+						</select>
+				</p>
+				<p>
+					<label for="nomequipe">Le nom de votre équipe <span class="rouge">*</span> :</label>
+   				<input type="text" name="nomequipe" id="nomequipe" required >
+				</p>
+				<p>
+					<label for="favcolor">La couleur principale de votre maillot :</label>
+   				<input type="color" name="favcolor" id="favcolor" >
+				</p>
+				<p>
+					<label for="nbre">Le nombre de joueurs participants (min 5 et max 10)<span class="rouge">*</span> :</label>
+   				<input type="number" name="nbre" id="nbre" min="5" max="10" required >
+				</p>
+
+				<p id="categorie">Votre catégorie <span class="rouge">*</span> :</p>
+					<div class="espace">
+						<input type="radio" name="categorie" value="u15" id="u15" checked="checked" required > 
+						<label for="u15">U15</label>
+						<input type="radio" name="categorie" value="u17" id="u17" > 
+						<label for="u17">U17</label>
+						<input type="radio" name="categorie" value="u18" id="u18">
+						<label for="u18">U18</label>
+						<input type="radio" name="categorie" value="u20" id="u20">
+						<label for="u20">U20</label>
+					</div>
+				<p id="sexe">Equipe <span class="rouge">*</span> :</p>
+					<div class="espace">
+						<p>
+							<input type="radio" name="sexe" value="masculine" checked="checked" id="masculine" required > 
+							<label for="masculine">Masculine</label>
+						</p>
+						<p>
+							<input type="radio" name="sexe" value="feminine" id="feminine"> 
+							<label for="feminine">Féminine</label>
+						</p>
+						<p>
+							<input type="radio" name="sexe" value="mixte" id="mixte" required > 
+							<label for="mixte">Mixte</label>
+						</p>
+					</div>
+		</fieldset>
+
+		<fieldset>
+			<legend id="legend2">Afin d'enregistrer votre inscription veuillez remplir les champs suivants :</legend>
+				<p>
+					<label for="nom"> Nom <span class="rouge">*</span> :</label>
+					<input type="text" name="nom" id="nom" required >
+				</p>
+				<p>
+					<label for="prenom">Prénom <span class="rouge">*</span> :</label>
+					<input type="text" name="prenom" id="prenom" required >
+				</p>
+				<p>
+					<label for="bdaytime">Date de naissance (jour et heure) <span class="rouge">*</span>:</label>
+   				<input type="datetime-local" name="bdaytime" id="bdaytime" required >
+				</p>
+				<p>
+					<label for="date">Date :</label>
+					<input type="date" name="date" id="date">
+				</p>
+				<p>
+					<label for="phone">Téléphone <span class="rouge">*</span>:</label>
+					<input type="tel" name="phone" id="phone" required pattern="^[0-9]{10}$" >
+				</p>
+				<p>
+					<label for="mail">Email <span class="rouge">*</span>:</label>
+					<input type="email" placeholder="mail@exemple.com" id="mail" required pattern="^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" >
+				</p>
+				<p>
+					<label for="autorisation">Une autorisation parentale si vous êtes mineure (en pdf) : </label>
+					<input type="file" name="autorisation" id="autorisation" accept=".pdf">
+				</p>
+				<p class="rouge margetop">Si vous n'en fournissez pas une alors que vous êtes mineure, votre inscription ne sera pas prise en compte !</p>
+				<p class="margetop">Cochez Oui si vous jouez en club :</p>
+					<div class="espace">
+						<input type="checkbox" name="club" id="club"> 
+						<label for="club">Oui</label>
+					</div>
+				<p>
+					<label for="lien">Un lien menant au site de votre club (facultatif) :</label>
+					<input type="url" name="lien" id="lien" placeholder="https://monclub.com">
+				</p>
+				<p>
+					<label for="message" id="suggestion">Suggestions (facultatif) :</label>
+					<textarea id="message" name="message" rows="4" cols="34">Problèmes de santé, blessures ...</textarea>
+				</p>
+				<p>
+					<label for="motdepasse">Mot de passe (8 caracters minimum) <span class="rouge">*</span> :</label>
+					<input type="password" name="motdepasse" id="motdepasse" minlength="8" required >
+				</p>
+		</fieldset>
+
+	<p id="champsobligatoire"><span class="rouge espace">*</span> champs obligatoire</p>
+
+	<div id="envoyer">
+		<label for="valider"></label>
+		<input type="submit" id="valider" value="Valider" class="espace boutonrouge">
+		<label for="effacer"></label>
+		<input type="reset" id="effacer" value="Effacer" class="espace boutonrouge" >
+	</div>
+</form>
+</main>
+<footer>
+	<input type="button" id="retour" value="Retour" class="boutonrouge" onclick="history.back()">	
+	<input type="button" id="suivant" value="Suivant" class="boutonrouge" onclick="window.location.href = 'logo.html';" >	
+</footer>
+<div>
+	<a id="cRetour" class="cInvisible" href="#sommaire"></a>
+</div>
+<script src="../javascript/retourenhaut.js"></script>
+<script src="../javascript/heure.js"></script>
+<script src="../javascript/form.js"></script>
+</body>
+</html>
