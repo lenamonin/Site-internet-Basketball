@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8" >
+	<meta name= "author" lang="fr" content= "Lena Monin" >
+	<meta name= "keywords" content= "basketball" >
+	<meta name="description" content="accueil du site">
+	<link rel="stylesheet" href="../css/pageaccueil.css" type="text/css">
+	<link rel="stylesheet" href="../css/retourenhaut.css" type="text/css">
+	<title>Page d'accueil</title>
+</head>
+<body>
+<header>
+	<nav>
+		<ul>
+			<li>
+				<a href="logo.html">Mon logo</a>
+			</li>
+			<li>
+				<a href="formulaire.html">Formulaire</a>
+			</li>	
+			<li>
+				<a href="lnb.html">LNB</a>
+			</li>	
+			<li>
+				<a href="parcoursperso.html">Mon Parcours Sportif</a>
+			</li>
+			<li>
+				<a href="index.html">Accueil</a>
+			</li>			
+		</ul>	
+	</nav>
+	<div>
+		<a href="index.html">
+			<img id="imglogo" src="../medias/images/logo.png" alt="logo du site"/>
+		</a>
+	</div>
+	<div id="heure_exacte"></div>
+</header>
+<main>
+	<section id="banner">
+		<h1>Basket-Ball</h1>	
+		<p>hard work beats talent when <span class="italic">talent</span> fails to work hard</p>
+	</section>
+	
+	<div>
+		<div id="sommaire">
+			<ol>	
+				<li>
+					<input type="button" value="Introduction" class="boutonvert" id="bouton1" onclick="window.location.href = '#div1';" >
+				</li>
+				<li>
+					<input type="button" value="Championnat Masculin" class="boutonvert" id="bouton2" onclick="window.location.href = '#div2';" >
+				</li>
+			</ol>
+		</div>
+		<div id="div1">
+			<p class="marge">Bienvenue !</p>	
+			<p class="marge">Moi c'est Léna Monin et je vous présente mon site sur le thème du BasketBall.</p>
+			<p class="marge">Vous pourrez retrouver des informations sur mon parcours personnel mais également la présentation du championnat masculin français répartit en plusieurs catégorie.</p>
+			<p class="marge">J'ai choisi de vous présenter :</p>
+				<ul>
+					<li>Un coach : Vincent Collet</li>
+					<li>Un joueur : Victor Wembanyama</li> 
+					<li>Une équipe : l'Asvel de Lyon</li>
+				</ul>
+			<p class="marge">Vous pourrez aussi vous inscrire à un tournoi de basket en cliquant dans l'onglet formulaire </p>
+			<p class="marge">Et vous pourrez voir la construction de mon logo dans la dernière page dans l'onglet mon logo avec toutes les explications et la démarche.</p>
+		</div>	
+	</div>
+	<div id="features">
+		<p class="marge">En cliquant sur l'une des images ci-dessous vous vous dirigerez dans l'onglet LNB</p>
+		<div id="div2" class="disposition">
+			<figure class="image" id="coach">
+				<a href="lnb.html#coach1">
+					<img class="image-item" src="../medias/images/coach3.jpg" alt="vincent collet">
+				</a>
+				<figcaption class="image-description">
+					<h3>Coach</h3>
+					<p>Le sélectionneur de l'équipe de France</p>
+				</figcaption>		
+			</figure>
+			<figure class="image" id="joueur">
+				<a href="lnb.html#player">
+					<img class="image-item" src="../medias/images/victorwemba3.jpg" alt="le meilleure jeune joueur de lnb">
+				</a>
+				<figcaption class="image-description">
+					<h3>Player</h3>
+					<p>Le meilleure jeune : l'espoir français</p>		
+				</figcaption>
+			</figure>
+			<figure class="image" id="club">
+				<a href="lnb.html#team">
+					<img class="image-item" src="../medias/images/equipe6.jpeg" alt="equipe asvel">
+				</a>
+				<figcaption class="image-description">				
+					<h3>Team</h3>
+					<p>Le meilleure équipe de la saison passée</p>		
+				</figcaption>
+			</figure>	
+		</div>
+		<p class="marge">En espérant que vous en sachiez un peu plus sur le Basket, je vous souhaite une bonne lecture !</p>
+	</div>
+</main>
+<footer>
+	<input type="button" class="boutonvert" id="retour" value="Retour" onclick="history.back()">
+	<input type="button" class="boutonvert" id="suivant" value="Suivant" onclick="window.location.href = 'parcoursperso.html';" >
+</footer>
+<div>
+	<a id="cRetour" class="cInvisible" href="#sommaire"></a>
+</div>
+<script src="../javascript/retourenhaut.js"></script>
+<script src="../javascript/heure.js"></script>
+</body>
+</html>
